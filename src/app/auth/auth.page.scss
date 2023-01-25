@@ -1,0 +1,79 @@
+.logoLogin{
+    width: 65%;
+    margin: 50px auto 40px auto;
+}
+
+.botonLogin{
+    margin: 35px 0px 20px 0px;
+    font-size: 18px;
+    text-transform: capitalize;
+    letter-spacing: normal;
+}
+
+.botonRegister{
+    text-transform: none;
+    font-size: 16px;
+    letter-spacing: normal;
+}
+
+.botonGoogle{
+    width: 100%;
+    font-size: 18px;
+    color: #fff;
+    background: #DD4B39;
+    padding: 15px 0px 15px 0px;
+}
+
+.tituloRedesSociales{
+    font-size: 20px;
+    font-weight: normal;
+    color: #303548;
+    margin: 40px 0px 15px 0px;
+}
+
+.icon {
+    display: inline-block;
+    color: rgb(255, 255, 255);
+    margin-right: 10px;
+    vertical-align: middle;
+   }
+   
+.text{
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.lineaDivisora{
+    border-bottom: 1px solid #ddd;
+    height: 30px;
+}
+.formLogin {
+    padding: 0 20px;
+}
+.itemLogin:first-child {
+    padding-left: 0px;
+}
+.textoEmailEnviado {
+    padding: 0 20px;
+    text-align: center;
+}
+
+.iconoMail {
+    margin: 30px auto 10px auto;
+    float: none;
+    display: flex;
+    font-size: 100px;
+    color: #2091a2;
+}
+
+.tituloEmailEnviado {
+    font-size: 30px;
+    font-weight: normal;
+    color: #2091a2;
+    margin: 10px 0px 15px 0px
+}
+
+.subtituloMail {
+    margin-bottom: 10px;
+    font-weight: bold;
+}

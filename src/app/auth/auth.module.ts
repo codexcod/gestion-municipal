@@ -1,20 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FolderPageRoutingModule } from './folder-routing.module';
+import { AuthPage } from './auth.page';
 
-import { FolderPage } from './folder.page';
+const routes: Routes = [
+  {
+    path: '',
+    component: AuthPage
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FolderPageRoutingModule
+    RouterModule.forChild(routes)
   ],
-  declarations: [FolderPage]
+  declarations: [AuthPage]
 })
-export class FolderPageModule {}
+export class AuthPageModule {}
