@@ -16,15 +16,6 @@ export class AuthPage implements OnInit {
     this.athService.iniciarSesion(form.value.user, form.value.pass);
     form.reset();
   }
-
-  loginGoogle(){
-    window.location.href = 'https://app.calim.com.ar/oauth/authenticate/google?callback=https://app.calim.com.ar/auth/successApp?token=';
-  }
-
-  irAlRegistro(){
-    this.router.navigateForward('/registro');
-  }
-
   ngOnInit() {
   }
 

@@ -24,14 +24,17 @@ export class AuthService {
   autoLogin() {
     return from(this.storage.get('authData')).pipe(
       map(storedData => {
-        const parsedData = JSON.parse(storedData);
-        if (!storedData || !parsedData.roles) {
+        const parsedData = JSON.parse(storedData)?.userData;
+        
+        if (!storedData || !parsedData.codigo_municipalidad) {
           return null;
         }
         const user = new User(
-          parsedData.username,
-          parsedData.token,
-          parsedData.roles
+          parsedData.NickName,
+          parsedData.Token,
+          parsedData.codigo_municipalidad,
+          parsedData.Nombre,
+          parsedData.destino,
         );
         return user;
       }),
@@ -61,46 +64,30 @@ export class AuthService {
   iniciarSesion(username: string, password: string) {
     this.isLoading = true;
 
-    let url = environment.calimUrl;
-    url += '/api/login';
+    let url = environment.server;
+    url += '/log/' + username + "/" + password ;
 
     this.loadingCtrl
       .create({ keyboardClose: true, message: 'Ingresando...' })
       .then(loadingEl => {
         loadingEl.present();
-        this.http.post(url, JSON.stringify({ username, password }))
+        this.http.get(url)
           .subscribe(
             (response) => {
               this.isLoading = false;
               loadingEl.dismiss();
-              const info = JSON.parse(JSON.stringify(response));
-              if (info.roles.includes('ROLE_CUENTA') || info.roles.includes('ROLE_EMPLEADOR') || info.roles.includes('ROLE_RIDER_PY')) {
-                this.setUserData(info);
-                //Consultar por la cuenta, si no tiene estado activo, redirijir a su action regsitro
-
-                let urlCuenta = environment.calimUrl + '/api/cuenta/appGetCuenta';
-                let head = new HttpHeaders();
-                head = head.set('X-Auth-Token', info.access_token);
-
-                this.http.get(urlCuenta, { headers: head }).subscribe(cnt => {
-                  const cuenta = JSON.parse(JSON.stringify(cnt));
-                  if (cuenta.estado == 'Activo') {
-                    if (info.roles.includes('ROLE_RIDER_PY'))
-                      this.router.navigateForward('/pedidosya/dashboard');
-                    else
-                      this.router.navigateForward('/dashboard');
-                  } else {
-                    this.router.navigateForward('/registro-steps/' + cuenta.actionRegistro);
-                  }
-                });
-
-              } else {
-                this.mostrarAlerta('El usuario ingresado no correponde a una cuenta');
+              const info = JSON.parse(JSON.stringify(response)).AutenticarResult[0];
+              
+              if(info.Token != ""){
+                this.setUserData(info)
+                this.router.navigateForward('/dashboard');
+              }else{
+                this.mostrarAlerta('Error en el usuario o password.');
               }
             },
             (err) => {
               loadingEl.dismiss();
-              this.mostrarAlerta('Error en el usuario o password.');
+              this.mostrarAlerta('Error conectandose al servidor');
               this.userSubject.next(null);
             }
           );
@@ -110,12 +97,15 @@ export class AuthService {
   private setUserData(userData) {
     this.userSubject.next(
       new User(
-        userData.username,
-        userData.access_token,
-        userData.roles
+        userData.NickName,
+        userData.Token,
+        userData.codigo_municipalidad,
+        userData.Nombre, 
+        userData.destino,
+        
       )
     );
-    this.guardarAuthData(userData.username, userData.access_token,userData.roles);
+    this.guardarAuthData(userData);
   }
 
   get username() {
@@ -153,12 +143,8 @@ export class AuthService {
     });
   }
 
-  private guardarAuthData(
-    username: string,
-    token: string,
-    roles:string[]
-  ) {
-    const data = JSON.stringify({username, token, roles});
+  private guardarAuthData(userData) {
+    const data = JSON.stringify({userData});
     this.storage.set('authData', data);
   }
 

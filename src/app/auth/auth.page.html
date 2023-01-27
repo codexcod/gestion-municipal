@@ -1,24 +1,18 @@
 
-<ion-content padding>
-  <ion-img class="ion-margin logoLogin" src="/assets/logo-dark.png"></ion-img>
-  <form class="formLogin" #formulario="ngForm">
-    <h5 class="tituloRedesSociales">Ingreso</h5>
-    <button (click)="loginGoogle()" class="botonGoogle">
-      <ion-icon class="icon" slot="start" name="logo-google"></ion-icon>
-      <span class="text">Con Google</span>
-      </button>
-      <div class="lineaDivisora"></div>
-    <ion-item class="itemLogin ion-no-padding">
-      <ion-label position="floating">
-        Usuario</ion-label>
-      <ion-input type="email" ngModel name="user" required email></ion-input>
-    </ion-item>
-    <ion-item class="itemLogin ion-no-padding">
-      <ion-label position="floating">Contraseña</ion-label>
-      <ion-input type="password" ngModel name="pass" required minlength="8"></ion-input>
-    </ion-item>
-    <button (click)="loguear(formulario)" [disabled]="!formulario.valid" class="botonUsuario">Ingresar</button>
-    <ion-button routerLink = "/forgot-password" color="medium" class="botonRegister" fill="clear" type="button" expand="full" margin-top>¿Olvidaste el password?</ion-button>
-    <ion-button (click) = "irAlRegistro()" color="medium" class="botonRegister" fill="clear" type="button" expand="full" margin-top>¿No tenés cuenta? Registrate</ion-button>
-  </form>
-</ion-content>
+<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+<form class="container" #formulario="ngForm"  padding>
+  <ion-img class="cityLogin" src="/assets/city_login.png"></ion-img>
+
+    <ion-card class="loginCard">
+      <h1 class="titulo">Gestion Municipal</h1>
+      <ion-item class="item-input">
+        <ion-input class="input" ngModel placeholder="Usuario" name="user"></ion-input>
+      </ion-item>
+      <ion-item class="item-input">
+        <app-show-hide-password>
+          <ion-input class="input" ngModel type="password" placeholder="Contraseña" name="pass"></ion-input>
+        </app-show-hide-password>
+      </ion-item>
+      <div (click)="loguear(formulario)" class="botonIniciarSesion">Iniciar Sesion</div>
+    </ion-card>
+</form>
