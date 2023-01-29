@@ -65,7 +65,7 @@ export class AuthService {
     this.isLoading = true;
 
     let url = environment.server;
-    url += '/log/' + username + "/" + password ;
+    url += 'log/' + username + "/" + password ;
 
     this.loadingCtrl
       .create({ keyboardClose: true, message: 'Ingresando...' })

@@ -1,12 +1,16 @@
 <ion-header>
-  <ion-toolbar>
-      <ion-buttons class="botonMenu ion-no-border" slot="start">
+  <ion-toolbar class="fondo">
+      <ion-buttons slot="start">
           <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <h1 class="tituloSaludo"> Hola Lizandro!</h1>
+      <h1 class="tituloSaludo"> Hola {{user?.nombre}}!</h1>
   </ion-toolbar>
 </ion-header>
-<ion-content>
-
-
+<ion-content class="fondo">
+  <div class="grid-container">
+    <div *ngFor="let item of items" class="grid-item">
+      <ion-img class="img-grid" src="{{item.imagen}}"></ion-img>
+      <p class="txt-grid" >{{item.nombre}}</p>
+    </div>
+  </div>
 </ion-content>

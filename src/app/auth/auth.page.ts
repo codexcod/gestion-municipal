@@ -10,11 +10,15 @@ import { NavController } from '@ionic/angular';
 })
 export class AuthPage implements OnInit {
 
-  constructor(private athService: AuthService, private router: NavController) { }
+  constructor(private authService: AuthService, private router: NavController) { }
 
   loguear(form: NgForm) {
-    this.athService.iniciarSesion(form.value.user, form.value.pass);
-    form.reset();
+    if((form.value.user != "" && form.value.user != undefined)  && (form.value.pass != "" && form.value.pass != undefined))
+      this.authService.iniciarSesion(form.value.user, form.value.pass);
+    else
+      this.authService.mostrarAlerta("Complete todos los datos")
+
+    //form.reset();
   }
   ngOnInit() {
   }
