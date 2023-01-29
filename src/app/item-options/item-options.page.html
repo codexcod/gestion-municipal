@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar class="fondo">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="dashboard"></ion-back-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="fondo">
+
+  <div class="big-item">
+    <ion-img class="img-grid" src="{{data.imagen}}"></ion-img>
+    <p class="txt-grid" >{{data.nombre}}</p>
+  </div>
+  <div *ngFor="let item of data.opciones; let i = index" class="item">
+    <ion-icon class="icon" name="{{item.icono}}"></ion-icon> 
+    <p class="text">{{item.nombre}}</p>
+  </div>
+</ion-content>

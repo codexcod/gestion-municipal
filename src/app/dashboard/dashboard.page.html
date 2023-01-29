@@ -8,7 +8,7 @@
 </ion-header>
 <ion-content class="fondo">
   <div class="grid-container">
-    <div *ngFor="let item of items" class="grid-item">
+    <div (click)="onClickItem($event, i)" *ngFor="let item of items; let i = index" class="grid-item">
       <ion-img class="img-grid" src="{{item.imagen}}"></ion-img>
       <p class="txt-grid" >{{item.nombre}}</p>
     </div>

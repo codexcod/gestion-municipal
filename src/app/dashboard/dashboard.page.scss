@@ -28,6 +28,27 @@ ion-header::after { display: none; }
     gap: 30px;
     margin-top: 10px;
     grid-template-columns: 1fr 1fr ; 
+    transition: all 0.5s ease-in-out;
+  }
+  .grid-container:hover >:not(:hover) {
+    opacity: 0;
+  }
+
+  .grid-item:hover{
+    transition: all 0.5s ease-in-out;
+    animation-name: click;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    opacity: 0;
+      
+  }
+
+  @keyframes click {
+    0% {scale: 1; opacity: 1;}
+    20% {scale: 1.2;}
+    40% {scale: 0.9;}
+    60% {scale: 1;}
+    100% {scale: 1; opacity: 0;}
   }
   
   .grid-item {
@@ -37,9 +58,10 @@ ion-header::after { display: none; }
     text-align: center;
     height: 140px;
     border-radius: 25px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     text-align: center;
     overflow: hidden; 
+    transition: all 0.5s ease-in-out;
   }
   
   .img-grid{
@@ -57,10 +79,10 @@ ion-header::after { display: none; }
     
   }
 
-  @media only screen and (max-width: 500px) {
+  @media only screen and (min-width: 500px) {
     .txt-grid{
       font-family: "Poppins",sans-serif;
-      font-size: 14px;
+      font-size: 16px;
       font-weight:500;
       margin: 0;
       

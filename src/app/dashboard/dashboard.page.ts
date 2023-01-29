@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationExtras } from '@angular/router';
+import { NavController } from '@ionic/angular';
 import { AuthService } from '../auth/auth.service';
 
 @Component({
@@ -8,34 +10,86 @@ import { AuthService } from '../auth/auth.service';
 })
 export class DashboardPage implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+    private router: NavController) { }
 
   public user;
   public items = [
     {
       nombre: "Contribuyentes",
       imagen: "/assets/user.png",
-      url: "contribuyentes"
+      opciones: [
+        {
+          icono: "person",
+          nombre: "Buscar por DNI"
+        },
+        {
+          icono: "search",
+          nombre: "Buscar por Nombre"
+        },
+      ]
     },
     {
       nombre: "Recaudaciones",
       imagen: "/assets/image_graficos.png",
-      url: "recaudaciones"
+      opciones: [
+        {
+          icono: "calendar",
+          nombre: "Recaudaciones por fecha"
+        },
+        {
+          icono: "calendar",
+          nombre: "Recaudaciones por año"
+        },
+        {
+          icono: "card",
+          nombre: "Carnet de conductor"
+        },
+        {
+          icono: "search",
+          nombre: "Recibos por gravamen"
+        },
+      ]
     },
     {
       nombre: "Proveedores",
       imagen: "/assets/manos.png",
-      url: "proveedores"
+      opciones: [
+        {
+          icono: "search",
+          nombre: "Buscar por Nombre"
+        },
+        {
+          icono: "search",
+          nombre: "Buscar por CUIT"
+        },
+        {
+          icono: "search",
+          nombre: "Buscar por Razon"
+        },
+      ]
     },
     {
       nombre: "Transito",
       imagen: "/assets/ic_auto_color.png",
-      url: "transito"
+      opciones: [
+        {
+          icono: "search",
+          nombre: "Buscar por Patente"
+        },
+        {
+          icono: "search",
+          nombre: "Buscar por Nombre"
+        },
+        {
+          icono: "person",
+          nombre: "Buscar por DNI"
+        },
+      ]
     },
     {
       nombre: "Contabilidad",
-      imagen: "/assets/contabilidad.png",
-      url: "contabilidad"
+      imagen: "/assets/contabilidad.png"
     },
   ]
 
@@ -48,5 +102,17 @@ export class DashboardPage implements OnInit {
     this.authService.userInfo.subscribe(perf => {
       this.user = perf
     });
+  }
+
+  onClickItem(event: any, i:any){
+
+    let navigationExtras: NavigationExtras = {
+      queryParams : {
+        data : JSON.stringify(this.items[i])
+      }
+    }
+    setTimeout(() =>{
+      this.router.navigateForward('/item-options', navigationExtras)
+    },300)
   }
 }
