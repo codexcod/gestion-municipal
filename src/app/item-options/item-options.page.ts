@@ -18,4 +18,10 @@ export class ItemOptionsPage implements OnInit {
     });
   }
 
+  clickItem(item) {
+    item.srcElement.classList.remove('animacion');
+    void item.srcElement.offsetWidth;
+    item.srcElement.classList.add('animacion');
+  }
+
 }

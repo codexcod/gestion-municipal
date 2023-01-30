@@ -77,6 +77,13 @@ ion-header::after { display: none; }
     }
   }
 
+  .animacion{
+    transition: all 0.5s ease-in-out;
+    animation-name: click;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+  }
+
 
   .item {
     display: block;
@@ -95,11 +102,6 @@ ion-header::after { display: none; }
 
     border-radius: 25px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-
-    transition: all 0.5s ease-in-out;
-    animation-name: click;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
    }
 
 
@@ -109,21 +111,23 @@ ion-header::after { display: none; }
     color: #34495E;
     vertical-align: middle;
     line-height: 1.5;
+    pointer-events: none;
    }
    
-   .text{
-        width: fit-content;
-        display: inline-block;
-        line-height: 2.5;
-        vertical-align: middle;
-        font-family: "Poppins",sans-serif;
-        font-size: 16px;
-        font-weight:300;
-        margin-left: 15px;
-        text-overflow: ellipsis;
-        overflow: hidden; 
-        white-space: nowrap;
-    }
+  .text{
+      width: fit-content;
+      display: inline-block;
+      line-height: 2.5;
+      vertical-align: middle;
+      font-family: "Poppins",sans-serif;
+      font-size: 16px;
+      font-weight:300;
+      margin-left: 15px;
+      text-overflow: ellipsis;
+      overflow: hidden; 
+      white-space: nowrap;
+      pointer-events: none;
+  }
 
    @media only screen and (min-width: 500px) {
     .text{

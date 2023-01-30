@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  calimUrl: 'http://localhost:8080'
+  server: 'http://190.210.166.250:44123/SGIM_Service.svc/'
 };

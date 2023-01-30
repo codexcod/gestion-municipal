@@ -32,9 +32,10 @@ export class AuthService {
         const user = new User(
           parsedData.NickName,
           parsedData.Token,
-          parsedData.codigo_municipalidad,
+          parsedData.Perfil,
           parsedData.Nombre,
           parsedData.destino,
+          parsedData.codigo_municipalidad
         );
         return user;
       }),
@@ -87,7 +88,7 @@ export class AuthService {
             },
             (err) => {
               loadingEl.dismiss();
-              this.mostrarAlerta('Error conectandose al servidor');
+              this.mostrarAlerta('Error conectandose al servidor : ' + JSON.stringify(err));
               this.userSubject.next(null);
             }
           );
@@ -99,9 +100,10 @@ export class AuthService {
       new User(
         userData.NickName,
         userData.Token,
-        userData.codigo_municipalidad,
+        userData.Perfil,
         userData.Nombre, 
         userData.destino,
+        userData.codigo_municipalidad
         
       )
     );
