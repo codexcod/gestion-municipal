@@ -1,0 +1,96 @@
+.fondo{
+    background: #D3F3F5;
+    --background: #D3F3F5;
+    height: 100%;
+}
+
+ion-header::after { display: none; }
+
+
+  @media only screen and (min-width: 500px) {
+    .nombre{
+      font-family: "Poppins",sans-serif;
+      font-size: 22px;
+      font-weight:600;
+      margin: 0;
+      color: #353434;
+      
+    }
+
+    .documento{
+      font-family: "Poppins",sans-serif;
+      font-size: 16px;
+      font-weight:500;
+      margin: 0;
+      color: #353434;
+      margin-top: 5px;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    .nombre{
+      font-family: "Poppins",sans-serif;
+      font-size: 18px;
+      font-weight:600;
+      margin: 0;
+            color: #353434;
+
+      
+    }
+    .documento{
+      font-family: "Poppins",sans-serif;
+      font-size: 12px;
+      font-weight:500;
+      margin: 0;
+      color: #353434;
+      margin-top: 5px;
+    }
+  }
+
+  @media only screen and (max-width: 500px) and (min-width:400px) {
+    .nombre{
+      font-family: "Poppins",sans-serif;
+      font-size: 20px;
+      font-weight:600;
+      margin: 0;
+      color: #353434;
+
+      
+    }
+
+    .documento{
+      font-family: "Poppins",sans-serif;
+      font-size: 14px;
+      font-weight:500;
+      margin: 0;
+      color: #353434;
+      margin-top: 5px;
+    }
+  }
+
+.item{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    transition: all 0.7s ease-in-out;
+
+}
+
+  @keyframes click {
+    0% {transform: translateY(150px);}
+    33% {transform: translateY(-15px);}
+    66% {transform: translateY(20px);}
+    100% {transform: translateY(0px);}
+  }
+
+.list{
+    margin-top: 15px;
+    border-radius: 20px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+       animation-name: click;
+    animation-duration: 0.7s;
+    animation-iteration-count: 1;
+}
+
+

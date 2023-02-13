@@ -15,6 +15,10 @@ const routes: Routes = [
     canLoad: [AuthGuard]
   },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then( m => m.AuthPageModule) },
+  {
+    path: 'buscador',
+    loadChildren: () => import('./buscador/buscador.module').then( m => m.BuscadorPageModule)
+  },
 ];
 
 @NgModule({

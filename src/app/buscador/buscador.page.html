@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar class="fondo">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="dashboard"></ion-back-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="fondo">
+    <ion-searchbar (ionChange)="filtrar($event)" placeholder="Buscar por DNI" show-clear-button="always"></ion-searchbar>
+     <ion-list class="list">        
+        <ion-item class="item" *ngFor="let item of list">
+            <ion-img slot="start" src="/assets/user_icon.png" style="width: 60px; height: 60px; border-radius: 20px; padding:7px;margin-right: 7px;"></ion-img>
+            <ion-label>
+              <h2 class="nombre">Joaquin Nuñez</h2>
+              <h3 class="documento">DNI: 45685472</h3>
+              <h3 class="documento">CUIT: 45685472</h3>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+
+</ion-content>
