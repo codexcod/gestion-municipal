@@ -14,10 +14,17 @@ const routes: Routes = [
     loadChildren: () => import('./item-options/item-options.module').then( m => m.ItemOptionsPageModule),
     canLoad: [AuthGuard]
   },
-  { path: 'auth', loadChildren: () => import('./auth/auth.module').then( m => m.AuthPageModule) },
+  { path: 'auth', loadChildren: () => import('./auth/auth.module').then( m => m.AuthPageModule) ,
+  canLoad: [AuthGuard]},
   {
     path: 'intro',
-    loadChildren: () => import('./intro/intro.module').then( m => m.IntroPageModule)
+    loadChildren: () => import('./intro/intro.module').then( m => m.IntroPageModule),
+    canLoad: [AuthGuard]
+  },
+  {
+    path: 'buscador',
+    loadChildren: () => import('./buscador/buscador.module').then( m => m.BuscadorPageModule),
+    canLoad: [AuthGuard]
   },
 ];
 

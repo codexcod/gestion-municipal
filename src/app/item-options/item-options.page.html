@@ -11,8 +11,10 @@
     <ion-img class="img-grid" src="{{data.imagen}}"></ion-img>
     <p class="txt-grid" >{{data.nombre}}</p>
   </div>
-  <div (click)="clickItem($event)" *ngFor="let item of data.opciones; let i = index" class="item animacion">
-    <ion-icon class="icon" name="{{item.icono}}"></ion-icon> 
-    <p class="text">{{item.nombre}}</p>
+  <div style="margin-bottom: 20px;">
+    <div (click)="clickItem($event)" *ngFor="let item of data.opciones; let i = index" class="item animacion">
+      <ion-icon class="icon" name="{{item.icono}}"></ion-icon> 
+      <p class="text">{{item.nombre}}</p>
+    </div>
   </div>
 </ion-content>
