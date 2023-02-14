@@ -1,0 +1,102 @@
+/*---------------------------------------------------*/
+
+.cityLogin{
+    position: absolute;
+    bottom: 0;
+    height: 690px;
+    width: 1948px;
+    transform: translateX(-400px);
+    animation-name: moveX;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes moveX {
+    0%{transform: translateX(-100px);}
+    100%{transform: translateX(-400px);}
+}
+
+.container{
+    background: #D3F3F5;
+    height: 100%;
+}
+
+
+.titulo{
+    text-align: center;
+    width: auto;
+    margin-top: 15%;
+    font-family: "Poppins",sans-serif;
+    font-size: 30px;
+    font-weight: bolder;
+    color: #0D2431;
+    
+}
+
+.sub-titulo{
+    text-align: center;
+    width: auto;
+    margin-top: 10px;
+    font-family: "Poppins",sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0D2431;
+    
+}
+
+
+
+
+.botonIniciarSesion{
+    display: flex;
+    background-color:  #44ADFF;
+    font-family: "Poppins",sans-serif;
+    font-weight: bold;
+    border-radius: 20px;
+    text-transform: none;
+    color: #fff;
+    height: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    align-items:center;
+    justify-content:center;
+    font-size: 14px;
+    margin-top: 60%;
+    
+}
+
+  .slider-pager-page {
+    height: 100%;
+  }
+  
+  .slide{
+    height: 100%;
+  }
+
+  .slider{
+    height: 100%;
+  }
+
+  .city1{
+    height: 690px;
+    width: 1948px;
+    transform: translateX(-400px);
+  }
+
+  .city2{
+    height: 690px;
+    width: 1948px;
+    transform: translateX(-400px);
+  }
+
+  .city3{
+    height: 690px;
+    width: 1948px;
+    transform: translateX(-400px);
+  }
+
+ion-slides {
+    --bullet-background: blue;
+    --bullet-background-active: #152C39;
+}
