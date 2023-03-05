@@ -6,14 +6,16 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="fondo">
-    <ion-searchbar (ionChange)="filtrar($event)" placeholder="Buscar por DNI" show-clear-button="always"></ion-searchbar>
-     <ion-list class="list">        
-        <ion-item class="item" *ngFor="let item of list">
-            <ion-img slot="start" src="/assets/user_icon.png" style="width: 60px; height: 60px; border-radius: 20px; padding:7px;margin-right: 7px;"></ion-img>
-            <ion-label>
-              <h2 class="nombre">Joaquin Nuñez</h2>
-              <h3 class="documento">DNI: 45685472</h3>
-              <h3 class="documento">CUIT: 45685472</h3>
+    <ion-item class="item-input">
+      <ion-input class="input" (ionChange)="filtrar($event)" placeholder="Buscar por DNI" show-clear-button="always"></ion-input>
+    </ion-item>
+     <ion-list #list class="list animacion">        
+        <ion-item (click)="clickItem($event)" class="item" *ngFor="let item of listMostar">
+            <ion-img slot="start" src="/assets/user_icon.png" class="img-item no-touchable"></ion-img>
+            <ion-label class="no-touchable">
+              <h2 class="nombre no-touchable">Joaquin Nuñez</h2>
+              <h3 class="documento no-touchable">DNI: 45685472</h3>
+              <h3 class="documento no-touchable">CUIT: 45685472</h3>
             </ion-label>
         </ion-item>
     </ion-list>
